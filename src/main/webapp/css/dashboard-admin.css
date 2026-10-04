@@ -1,0 +1,119 @@
+/* ==========================================================================
+   ADMIN DASHBOARD — Styles & Component Extensions
+   ========================================================================== */
+
+/* ---------- Row actions in tables ---------- */
+.row-actions { display: flex; gap: 6px; }
+
+.icon-btn.danger:hover { 
+    border-color: rgba(239, 68, 68, 0.4); 
+    color: var(--red); 
+    background: rgba(239, 68, 68, 0.06); 
+}
+
+/* ---------- Conflict alert (timetable) ---------- */
+.conflict-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    background: linear-gradient(135deg, rgba(254, 242, 242, 0.6) 0%, rgba(255, 255, 255, 0.9) 100%);
+}
+
+.alert-icon.warn {
+    background: rgba(239, 68, 68, 0.14);
+    color: #b91c1c;
+}
+
+/* ---------- Admin Quick Action Pills ---------- */
+.admin-quick-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.quick-action-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    box-shadow: var(--shadow-xs);
+    transition: all 0.18s ease;
+    text-decoration: none;
+}
+
+.quick-action-pill i {
+    font-size: 14px;
+    color: var(--primary);
+    transition: transform 0.18s ease;
+}
+
+.quick-action-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: #cbd5e1;
+    color: var(--primary);
+}
+
+.quick-action-pill:hover i {
+    transform: scale(1.15);
+}
+
+.quick-action-pill .badge-count {
+    background: #ea580c;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 999px;
+    margin-left: 2px;
+}
+
+/* ---------- Timetable conflict styling ---------- */
+.timetable td { position: relative; }
+.timetable td:has(.slot.conflict) { padding: 5px; }
+
+.slot.conflict {
+    background: rgba(239, 68, 68, 0.12) !important;
+    color: #b91c1c !important;
+    border: 1.5px dashed rgba(239, 68, 68, 0.4);
+    margin-bottom: 3px;
+}
+
+.timetable td .slot:not(:last-child) { margin-bottom: 3px; }
+
+/* ---------- Tutor cards ---------- */
+.tutor-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.avatar.lg-avatar {
+    width: 48px; height: 48px;
+    font-size: 15px;
+    background: linear-gradient(135deg, #7c3aed, #06b6d4);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+.warn-text { color: #b45309; font-weight: 600; }
+
+/* ---------- Toolbar right group ---------- */
+.toolbar-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+    .conflict-card, .alert-card { flex-direction: column; align-items: flex-start; }
+    .admin-quick-actions { flex-direction: column; }
+    .quick-action-pill { width: 100%; justify-content: flex-start; }
+}

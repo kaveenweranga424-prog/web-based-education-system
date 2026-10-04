@@ -1,0 +1,30 @@
+/* Administrative Staff dashboard additions */
+.staff-welcome-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px;
+}
+
+.staff-welcome-card h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 8px;
+}
+
+.staff-welcome-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.staff-welcome-icon {
+    font-size: 42px;
+    color: var(--primary);
+}
+
+@media (max-width: 620px) {
+    .staff-welcome-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

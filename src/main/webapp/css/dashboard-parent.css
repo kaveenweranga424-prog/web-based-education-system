@@ -1,0 +1,47 @@
+/* ==========================================================================
+   PARENT DASHBOARD — Component Extensions
+   ========================================================================== */
+
+/* ---------- Child switcher in sidebar ---------- */
+.child-switcher {
+    padding: 10px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 8px;
+    background: #f8fafc;
+    border-radius: 12px;
+    margin: 4px 12px 12px;
+}
+
+.switcher-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.child-switcher .select-wrap select {
+    padding: 10px 34px 10px 14px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1.5px solid var(--border-color);
+    color: var(--dark);
+}
+
+.child-switcher .select-icon { right: 14px; }
+
+/* ---------- Amber nav badge (fees due) ---------- */
+.nav-badge.amber { background: var(--amber); }
+
+/* ---------- Grade chip inline in lists ---------- */
+.class-list .grade { flex-shrink: 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+    .class-list .amount { margin-left: auto; }
+}

@@ -1,0 +1,283 @@
+/* ==========================================================================
+   REGISTER PAGE — extends login.css / style.css tokens
+   ========================================================================== */
+
+.auth-shell--register {
+    grid-template-columns: 1fr 1.05fr;
+}
+
+/* Safety net: password fields must never be fully hidden by JS failures */
+.reg-panel {
+    display: flex !important;
+}
+
+.auth-form-wrap--wide {
+    max-width: 460px;
+}
+
+/* ---- Left panel feature list (replaces stat row / quote on register) ---- */
+.auth-feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.auth-feature-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #a78bfa;
+    flex-shrink: 0;
+}
+
+.auth-feature-list div { display: flex; flex-direction: column; gap: 2px; padding-top: 2px; }
+
+.auth-feature-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.auth-feature-text {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.5;
+}
+
+/* ---- Step indicator ---- */
+.reg-steps {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.reg-step {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    opacity: 0.45;
+    transition: opacity 0.25s ease;
+}
+
+.reg-step.is-active,
+.reg-step.is-done {
+    opacity: 1;
+}
+
+.reg-step-dot {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1.5px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.reg-step.is-active .reg-step-dot {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    border-color: transparent;
+    color: #fff;
+}
+
+.reg-step.is-done .reg-step-dot {
+    background: #16a34a;
+    border-color: transparent;
+    color: #fff;
+}
+
+.reg-step-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark);
+    white-space: nowrap;
+}
+
+.reg-step-line {
+    flex: 1;
+    height: 1.5px;
+    background: var(--border-color);
+}
+
+/* ---- Multi-step panels ---- */
+.reg-panel {
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+    animation: regFadeIn 0.35s ease;
+}
+
+.reg-panel.is-active { display: flex; }
+
+@keyframes regFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.field-optional {
+    font-weight: 400;
+    color: var(--text-secondary);
+    font-size: 12.5px;
+}
+
+.field-hint {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* ---- Select ---- */
+.select-wrap { position: relative; display: flex; align-items: center; }
+
+.select-wrap select {
+    width: 100%;
+    padding: 13px 40px 13px 16px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border-color);
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    color: var(--dark);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select-wrap select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
+}
+
+.select-wrap select.input-invalid { border-color: #ef4444; }
+
+.select-icon {
+    position: absolute;
+    right: 16px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    pointer-events: none;
+}
+
+/* ---- Password strength ---- */
+.pw-strength {
+    display: flex;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.pw-strength-bar {
+    height: 4px;
+    flex: 1;
+    border-radius: 999px;
+    background: var(--border-color);
+    transition: background 0.25s ease;
+}
+
+.pw-strength.weak .pw-strength-bar:nth-child(1) { background: #ef4444; }
+.pw-strength.medium .pw-strength-bar:nth-child(1),
+.pw-strength.medium .pw-strength-bar:nth-child(2) { background: #f59e0b; }
+.pw-strength.strong .pw-strength-bar { background: #16a34a; }
+
+/* ---- Terms checkbox ---- */
+.reg-terms {
+    align-items: flex-start;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.reg-terms .checkbox-box { margin-top: 1px; }
+
+.reg-terms a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.reg-terms a:hover { text-decoration: underline; }
+
+/* ---- Step actions ---- */
+.reg-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.btn-ghost {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border-color);
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--dark);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-ghost:hover { border-color: #d4d4d4; background: #fafafa; }
+
+.reg-actions .auth-submit { margin-top: 0; }
+
+.reg-next { margin-top: 4px; }
+
+.auth-switch-alt {
+    margin: 10px 0 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.auth-switch-alt a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-switch-alt a:hover { text-decoration: underline; }
+
+/* ---- Responsive ---- */
+@media (max-width: 980px) {
+    .auth-shell--register { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+    .form-grid-2 { grid-template-columns: 1fr; }
+    .reg-step-label { display: none; }
+    .reg-actions { flex-direction: column-reverse; }
+    .btn-ghost { width: 100%; }
+}
